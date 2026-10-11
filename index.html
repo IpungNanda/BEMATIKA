@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BEMATIKA | Belajar Matematika Kelas 3 SD</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+:root {
+  --blue: #3b82f6;
+  --blue-dark: #1d4ed8;
+  --purple: #8b5cf6;
+  --yellow: #f59e0b;
+  --yellow-bg: #fef3c7;
+  --pink: #ec4899;
+  --pink-bg: #fce7f3;
+  --green: #10b981;
+  --green-bg: #d1fae5;
+  --ink: #1e293b;
+  --muted: #64748b;
+  --bg: #f8fafc;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+button { font: inherit; cursor: pointer; }
+
+button:focus-visible, a:focus-visible {
+  outline: 4px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 7%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.logo-icon {
+  background: var(--yellow-bg);
+  padding: 6px 10px;
+  border-radius: 16px;
+  font-size: 24px;
+  box-shadow: 0 4px 0 #fbbf24;
+}
+
+.logo span { color: var(--pink); }
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-links button {
+  background: transparent;
+  border: none;
+  padding: 10px 18px;
+  color: var(--muted);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 16px;
+  transition: all 0.2s ease;
+}
+
+.nav-links button:hover,
+.nav-links button.active {
+  background: #eff6ff;
+  color: var(--blue);
+  transform: translateY(-2px);
+}
+
+.menu-btn {
+  display: none;
+  border: 0;
+  background: #eff6ff;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 22px;
+  color: var(--blue);
+}
+
+/* HERO SECTION */
+.hero {
+  padding: 60px 7%;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 40px;
+  background: linear-gradient(135deg, #eff6ff 0%, #fdf4ff 100%);
+  position: relative;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: white;
+  color: var(--purple);
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1);
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.hero h1 span { color: var(--blue); text-shadow: 2px 2px 0px #bfdbfe; }
+
+.hero p {
+  font-size: 18px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 20px 0 30px;
+  max-width: 500px;
+}
+
+.primary-btn {
+  background: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 28px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 6px 0 var(--blue-dark);
+  transition: all 0.15s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 0 var(--blue-dark);
+}
+
+.primary-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--blue-dark);
+}
+
+.secondary-btn {
+  background: white;
+  border: 3px solid #e2e8f0;
+  color: var(--blue);
+  border-radius: 20px;
+  padding: 14px 24px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 10px;
+  box-shadow: 0 6px 0 #cbd5e1;
+  transition: all 0.15s ease;
+}
+
+.secondary-btn:hover {
+  transform: translateY(-3px);
+  border-color: var(--blue);
+}
+
+.hero-art {
+  text-align: center;
+  position: relative;
+  min-height: 320px;
+}
+
+.mascot {
+  background: white;
+  border-radius: 50%;
+  width: 220px;
+  height: 220px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 110px;
+  box-shadow: 0 20px 50px rgba(59, 130, 246, 0.15);
+  animation: float 3s ease-in-out infinite;
+  border: 6px solid white;
+}
+
+.float-item {
+  position: absolute;
+  background: white;
+  padding: 12px 18px;
+  border-radius: 20px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  border: 3px solid #f1f5f9;
+}
+
+.item-one { top: 10%; left: 5%; color: var(--yellow); animation: float 3.5s ease-in-out infinite alternate; }
+.item-two { right: 5%; top: 30%; color: var(--purple); animation: float 2.8s ease-in-out infinite alternate; }
+.item-three { left: 10%; bottom: 10%; color: var(--green); animation: float 4s ease-in-out infinite alternate; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(3deg); }
+}
+
+/* STATS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 0 7%;
+  margin-top: -30px;
+  position: relative;
+  z-index: 10;
+}
+
+.stat-card {
+  background: white;
+  padding: 24px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  border-bottom: 5px solid #e2e8f0;
+  transition: transform 0.2s;
+}
+
+.stat-card:hover { transform: translateY(-5px); }
+.stat-card:nth-child(1) { border-color: var(--yellow); }
+.stat-card:nth-child(2) { border-color: var(--pink); }
+.stat-card:nth-child(3) { border-color: var(--green); }
+
+.stat-icon {
+  font-size: 32px;
+  background: #f8fafc;
+  padding: 14px;
+  border-radius: 18px;
+}
+
+.stat-card strong { font-family: 'Fredoka', sans-serif; font-size: 26px; display: block; color: var(--ink); }
+.stat-card small { color: var(--muted); font-weight: 700; font-size: 14px; }
+
+/* SECTIONS */
+.section {
+  padding: 80px 7%;
+  scroll-margin-top: 80px;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-heading .tag {
+  color: var(--purple);
+  background: #f3e8ff;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 1px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.section-heading h2 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(30px, 4vw, 42px);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* TOPIC CARDS */
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.topic-card {
+  padding: 30px 22px;
+  background: white;
+  border-radius: 28px;
+  border: 3px solid #f1f5f9;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.topic-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--blue);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.12);
+}
+
+.topic-icon {
+  width: 70px;
+  height: 70px;
+  display: grid;
+  place-items: center;
+  font-size: 36px;
+  border-radius: 22px;
+  margin-bottom: 20px;
+}
+
+.topic-card h3 { font-family: 'Fredoka', sans-serif; font-size: 22px; margin-bottom: 10px; }
+.topic-card p { color: var(--muted); font-size: 15px; line-height: 1.6; flex-grow: 1; margin-bottom: 20px; }
+
+.topic-card button {
+  border: none;
+  background: #eff6ff;
+  color: var(--blue);
+  padding: 12px;
+  border-radius: 16px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.topic-card button:hover { background: var(--blue); color: white; }
+
+/* LESSON AREA */
+.lesson-area {
+  margin-top: 40px;
+  padding: 35px;
+  background: white;
+  border: 4px solid #e0f2fe;
+  border-radius: 32px;
+  display: none;
+  animation: appear .3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+}
+
+.lesson-area.show { display: block; }
+
+@keyframes appear {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.lesson-area h3 { font-family: 'Fredoka', sans-serif; font-size: 28px; margin-bottom: 12px; color: var(--blue); }
+.lesson-area p { line-height: 1.8; color: var(--muted); font-size: 16px; }
+
+.lesson-example {
+  background: var(--yellow-bg);
+  border-radius: 22px;
+  padding: 24px;
+  margin-top: 22px;
+  border: 2px dashed #fcd34d;
+}
+
+.lesson-example strong { color: #b45309; font-size: 16px; }
+.lesson-example .big-number { font-family: 'Fredoka', sans-serif; font-size: 32px; font-weight: 700; color: #92400e; margin: 8px 0; }
+
+.visual-box {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  margin-top: 15px;
+  font-size: 28px;
+  letter-spacing: 6px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+  text-align: center;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* QUIZ / PRACTICE */
+.practice-wrap {
+  background: linear-gradient(135deg, #f0fdf4 0%, #eff6ff 100%);
+}
+
+.quiz-card {
+  background: white;
+  border-radius: 36px;
+  padding: 40px;
+  max-width: 780px;
+  margin: auto;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  border: 4px solid #ffffff;
+}
+
+.quiz-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 20px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 18px;
+  color: var(--muted);
+}
+
+.progress-track {
+  height: 12px;
+  background: #f1f5f9;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.progress-fill {
+  width: 0;
+  height: 100%;
+  background: var(--green);
+  border-radius: 20px;
+  transition: width .3s ease;
+}
+
+.question {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  color: var(--ink);
+}
+
+.answers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.answer-btn {
+  padding: 20px;
+  border: 3px solid #e2e8f0;
+  border-radius: 20px;
+  background: white;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 0 #e2e8f0;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.answer-btn:hover:not(:disabled) {
+  border-color: var(--blue);
+  background: #eff6ff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #bfdbfe;
+}
+
+.answer-btn:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #bfdbfe;
+}
+
+.answer-btn.correct { background: var(--green-bg) !important; border-color: var(--green) !important; color: #065f46; box-shadow: 0 4px 0 #6ee7b7 !important; }
+.answer-btn.wrong { background: var(--pink-bg) !important; border-color: var(--pink) !important; color: #9f1239; box-shadow: 0 4px 0 #f472b6 !important; }
+
+.feedback {
+  margin-top: 24px;
+  padding: 18px;
+  border-radius: 18px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+  display: none;
+  line-height: 1.6;
+}
+
+.feedback.show { display: block; animation: appear 0.2s ease; }
+.feedback.good { background: var(--green-bg); color: #047857; border: 2px solid #6ee7b7; }
+.feedback.bad { background: var(--pink-bg); color: #be185d; border: 2px solid #f472b6; }
+
+.quiz-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  gap: 12px;
+}
+
+.quiz-controls button:disabled { opacity: .4; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
+
+.secondary-action {
+  border: 3px solid #e2e8f0;
+  background: white;
+  color: var(--muted);
+  border-radius: 18px;
+  padding: 14px 20px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: 0 4px 0 #e2e8f0;
+  transition: all 0.15s;
+}
+.secondary-action:hover:not(:disabled) { background: #f8fafc; color: var(--ink); }
+
+.result {
+  text-align: center;
+  display: none;
+}
+
+.result.show { display: block; animation: appear 0.3s ease; }
+.result-emoji { font-size: 90px; margin-bottom: 10px; animation: float 2s infinite ease-in-out; }
+.result h3 { font-family: 'Fredoka', sans-serif; font-size: 34px; margin-bottom: 10px; color: var(--blue); }
+.result p { color: var(--muted); line-height: 1.8; margin-bottom: 25px; font-size: 17px; }
+
+/* TIPS SECTION */
+.tip-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.tip-card {
+  background: white;
+  border-radius: 28px;
+  padding: 32px 26px;
+  border: 3px solid #f1f5f9;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.tip-card:hover { transform: translateY(-5px); }
+.tip-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+}
+.tip-card:nth-child(1)::before { background: var(--yellow); }
+.tip-card:nth-child(2)::before { background: var(--purple); }
+.tip-card:nth-child(3)::before { background: var(--pink); }
+
+.tip-card .emoji { font-size: 40px; margin-bottom: 15px; display: inline-block; background: #f8fafc; padding: 12px; border-radius: 20px;}
+.tip-card h3 { font-family: 'Fredoka', sans-serif; font-size: 20px; margin-bottom: 10px; }
+.tip-card p { color: var(--muted); line-height: 1.7; font-size: 15px; }
+
+/* FOOTER */
+footer {
+  padding: 50px 7%;
+  background: var(--ink);
+  color: white;
+  text-align: center;
+}
+
+footer .logo { justify-content: center; color: white; }
+footer .logo-icon { background: rgba(255,255,255,0.1); box-shadow: none; }
+footer p { margin-top: 14px; color: #94a3b8; font-size: 15px; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; text-align: center; padding-top: 40px; }
+  .hero p { margin-left: auto; margin-right: auto; }
+  .hero-art { min-height: 280px; }
+  .topic-grid { grid-template-columns: repeat(2, 1fr); }
+  .tip-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .navbar { padding: 14px 5%; }
+  .logo { font-size: 24px; }
+  .menu-btn { display: block; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 16px 7% 24px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    flex-direction: column;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links button { text-align: left; padding: 12px; }
+  .hero { padding: 40px 5%; }
+  .hero h1 { font-size: 34px; }
+  .hero p { font-size: 16px; }
+  .secondary-btn { margin: 12px 0 0; display: block; width: 100%; margin-left: 0; }
+  .primary-btn { display: block; width: 100%; }
+  .stats { padding: 0 5%; grid-template-columns: 1fr; margin-top: 20px; }
+  .section { padding: 60px 5%; }
+  .topic-grid { grid-template-columns: 1fr; }
+  .answers { grid-template-columns: 1fr; }
+  .quiz-card { padding: 25px 20px; }
+  .question { font-size: 22px; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <div class="logo-icon">🧮</div>
+    BE<span>MATIKA</span>
+  </div>
+
+  <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false">☰</button>
+
+  <nav class="nav-links" id="navLinks">
+    <button class="active" data-target="beranda">Beranda</button>
+    <button data-target="materi">Materi</button>
+    <button data-target="latihan">Latihan Soal</button>
+    <button data-target="tips">Tips Belajar</button>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="beranda">
+  <div>
+    <div class="eyebrow">🌟 PETUALANGAN MATEMATIKA DIMULAI!</div>
+    <h1>Belajar Matematika Jadi <span>Asyik!</span> 🎉</h1>
+    <p>
+      Halo, Teman BEMATIKA! Yuk, berpetualang menjelajahi angka, 
+      memecahkan teka-teki seru, dan mengumpulkan banyak bintang! 🚀
+    </p>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+      <button class="primary-btn" onclick="goTo('materi')">
+        🚀 Mulai Belajar
+      </button>
+      <button class="secondary-btn" onclick="goTo('latihan')">
+        🎮 Main Kuis
+      </button>
+    </div>
+  </div>
+
+  <div class="hero-art" aria-label="Maskot BEMATIKA">
+    <div class="float-item item-one">2 + 3 = 5 ✨</div>
+    <div class="float-item item-two">⭐ +10 Poin</div>
+    <div class="float-item item-three">× ÷ + − Jagoan!</div>
+    <div class="mascot">🦊</div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat-card">
+    <div class="stat-icon">📚</div>
+    <div><strong>4</strong><small>Materi Seru</small></div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">🎯</div>
+    <div><strong>10</strong><small>Soal Tantangan</small></div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">⭐</div>
+    <div><strong id="totalStars">0</strong><small>Bintang Kamu</small></div>
+  </div>
+</div>
+
+<section class="section" id="materi">
+  <div class="section-heading">
+    <div class="tag">📖 RUANG BELAJAR</div>
+    <h2>Yuk, Kenali Materinya!</h2>
+    <p>Pilih topik petualangan yang ingin kamu pelajari hari ini.</p>
+  </div>
+
+  <div class="topic-grid">
+    <article class="topic-card">
+      <div class="topic-icon" style="background:#fef3c7">➕</div>
+      <h3>Penjumlahan</h3>
+      <p>Belajar menggabungkan kelompok benda agar jumlahnya makin banyak.</p>
+      <button onclick="showLesson('tambah')">Pelajari →</button>
+    </article>
+
+    <article class="topic-card">
+      <div class="topic-icon" style="background:#d1fae5">➖</div>
+      <h3>Pengurangan</h3>
+      <p>Belajar menghitung sisa benda setelah sebagian diambil.</p>
+      <button onclick="showLesson('kurang')">Pelajari →</button>
+    </article>
+
+    <article class="topic-card">
+      <div class="topic-icon" style="background:#f3e8ff">✖️</div>
+      <h3>Perkalian</h3>
+      <p>Cara cepat menghitung penjumlahan berulang dengan bilangan yang sama.</p>
+      <button onclick="showLesson('kali')">Pelajari →</button>
+    </article>
+
+    <article class="topic-card">
+      <div class="topic-icon" style="background:#fce7f3">➗</div>
+      <h3>Pembagian</h3>
+      <p>Belajar membagikan benda sama rata kepada teman-teman.</p>
+      <button onclick="showLesson('bagi')">Pelajari →</button>
+    </article>
+  </div>
+
+  <div class="lesson-area" id="lessonArea" aria-live="polite">
+    <h3 id="lessonTitle">Materi</h3>
+    <p id="lessonDesc"></p>
+    <div class="lesson-example">
+      <strong>💡 Contoh Visual:</strong>
+      <div class="big-number" id="lessonFormula"></div>
+      <p id="lessonExplanation"></p>
+      <div class="visual-box" id="lessonVisual"></div>
+    </div>
+    <button class="primary-btn" style="margin-top:24px" onclick="goTo('latihan')">🎮 Coba Latihan Soal</button>
+  </div>
+</section>
+
+<section class="section practice-wrap" id="latihan">
+  <div class="section-heading">
+    <div class="tag">🏆 MISI BINTANG</div>
+    <h2>Siap Menjadi Jagoan Matematika?</h2>
+    <p>Jawab 10 pertanyaan seru ini. Setiap jawaban benar mendapat 10 bintang!</p>
+  </div>
+
+  <div class="quiz-card">
+    <div id="quizContent">
+      <div class="quiz-top">
+        <span id="questionCount">Soal 1 dari 10</span>
+        <span>⭐ <span id="currentScore">0</span> poin</span>
+      </div>
+
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+
+      <div class="question" id="questionText" aria-live="polite">
+        Berapa hasil dari 25 + 14?
+      </div>
+
+      <div class="answers" id="answerOptions"></div>
+      <div class="feedback" id="feedback" aria-live="polite"></div>
+
+      <div class="quiz-controls">
+        <button class="secondary-action" onclick="restartQuiz()">↻ Ulangi</button>
+        <button class="primary-btn" id="nextBtn" onclick="nextQuestion()" disabled>Berikutnya →</button>
+      </div>
+    </div>
+
+    <div class="result" id="resultPanel" aria-live="polite">
+      <div class="result-emoji" id="resultEmoji">🏆</div>
+      <h3 id="resultTitle">Hebat Sekali!</h3>
+      <p id="resultMessage"></p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <button class="primary-btn" onclick="restartQuiz()">🔄 Main Lagi</button>
+        <button class="secondary-action" onclick="goTo('materi')">📚 Belajar Lagi</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tips">
+  <div class="section-heading">
+    <div class="tag">💡 RAHASIA JAGO BERHITUNG</div>
+    <h2>Tips Belajar untuk Kamu</h2>
+    <p>Ikuti tips keren ini supaya matematika jadi permainan favoritmu!</p>
+  </div>
+
+  <div class="tip-grid">
+    <article class="tip-card">
+      <div class="emoji">🍎</div>
+      <h3>Gunakan Benda Nyata</h3>
+      <p>Hitung pensil, mainan, atau buah di sekitarmu untuk membuat angka lebih mudah dibayangkan.</p>
+    </article>
+    <article class="tip-card">
+      <div class="emoji">🧠</div>
+      <h3>Berlatih Sedikit Demi Sedikit</h3>
+      <p>Kerjakan beberapa soal setiap hari secara rutin agar otak semakin terbiasa dan tangkas.</p>
+    </article>
+    <article class="tip-card">
+      <div class="emoji">🎉</div>
+      <h3>Jangan Takut Salah!</h3>
+      <p>Setiap kesalahan adalah petunjuk rahasia untuk menjadi lebih pintar. Periksa, lalu coba lagi!</p>
+    </article>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="logo">
+    <div class="logo-icon">🧮</div>
+    BE<span>MATIKA</span>
+  </div>
+  <p>Belajar Matematika Jadi Asyik! 🌈</p>
+  <p>Media Pembelajaran Matematika Kelas 3 SD</p>
+  <p style="margin-top:16px; font-size: 14px;">© 2026 BEMATIKA • Belajar, Bermain, Berprestasi!</p>
+</footer>
+
+<script>
+const lessons = {
+  tambah: {
+    title: "➕ Penjumlahan",
+    desc: "Penjumlahan adalah kegiatan menggabungkan dua kelompok benda atau lebih menjadi satu kesatuan. Tanda yang digunakan adalah tanda plus (+).",
+    formula: "25 + 14 = 39",
+    explanation: "25 ditambah 10 menjadi 35. Lalu, 35 ditambah sisa 4 menjadi 39. Hebat!",
+    visual: "🍎🍎🍎 + 🍎🍎 = 🍎🍎🍎🍎🍎"
+  },
+  kurang: {
+    title: "➖ Pengurangan",
+    desc: "Pengurangan adalah kegiatan mengambil sebagian benda dari jumlah awal sehingga sisanya menjadi berkurang. Tanda yang digunakan adalah minus (−).",
+    formula: "18 − 6 = 12",
+    explanation: "Ada 18 permen, lalu 6 permen dimakan. Permen yang tersisa tinggal 12 buah.",
+    visual: "🍬🍬🍬🍬🍬🍬 − 🍬🍬 = 🍬🍬🍬🍬"
+  },
+  kali: {
+    title: "✖️ Perkalian",
+    desc: "Perkalian adalah penjumlahan berulang dengan bilangan yang sama. Membantu menghitung jumlah banyak jadi jauh lebih cepat!",
+    formula: "4 × 3 = 12",
+    explanation: "Ada 4 piring. Setiap piring berisi 3 kue. Total kue = 3 + 3 + 3 + 3 = 12 buah kue.",
+    visual: "🍪🍪🍪 | 🍪🍪🍪 | 🍪🍪🍪 | 🍪🍪🍪"
+  },
+  bagi: {
+    title: "➗ Pembagian",
+    desc: "Pembagian adalah membagi suatu jumlah total benda menjadi beberapa kelompok yang sama banyak dan adil.",
+    formula: "20 ÷ 4 = 5",
+    explanation: "Ada 20 permen dibagikan rata kepada 4 anak. Masing-masing anak mendapatkan 5 permen.",
+    visual: "👧 🍬🍬🍬🍬🍬   👦 🍬🍬🍬🍬🍬"
+  }
+};
+
+function showLesson(key) {
+  const lesson = lessons[key];
+  document.getElementById("lessonTitle").textContent = lesson.title;
+  document.getElementById("lessonDesc").textContent = lesson.desc;
+  document.getElementById("lessonFormula").textContent = lesson.formula;
+  document.getElementById("lessonExplanation").textContent = lesson.explanation;
+  document.getElementById("lessonVisual").textContent = lesson.visual;
+
+  const area = document.getElementById("lessonArea");
+  area.classList.add("show");
+  area.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function goTo(id) {
+  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+  document.getElementById("navLinks").classList.remove("open");
+  document.getElementById("menuBtn").setAttribute("aria-expanded", "false");
+}
+
+document.getElementById("menuBtn").addEventListener("click", () => {
+  const nav = document.getElementById("navLinks");
+  nav.classList.toggle("open");
+  document.getElementById("menuBtn").setAttribute(
+    "aria-expanded", nav.classList.contains("open")
+  );
+});
+
+document.querySelectorAll(".nav-links button").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".nav-links button").forEach(item =>
+      item.classList.remove("active")
+    );
+    button.classList.add("active");
+    goTo(button.dataset.target);
+  });
+});
+
+const questions = [
+  { q: "Berapakah hasil dari 25 + 14?", a: ["29", "39", "41", "49"], c: 1, e: "25 + 14 = 39. Tambahkan nilai puluhan lalu satuannya." },
+  { q: "Ibu memiliki 50 jeruk. Sebanyak 20 jeruk diberikan kepada tetangga. Berapa sisanya?", a: ["20", "25", "30", "35"], c: 2, e: "50 − 20 = 30 jeruk tersisa." },
+  { q: "Berapakah hasil dari 6 × 4?", a: ["10", "20", "24", "28"], c: 2, e: "6 × 4 artinya 6 + 6 + 6 + 6 = 24." },
+  { q: "Berapakah hasil dari 36 ÷ 6?", a: ["5", "6", "7", "8"], c: 1, e: "36 dibagi menjadi 6 kelompok sama banyak menghasilkan 6." },
+  { q: "Berapakah hasil dari 125 + 75?", a: ["175", "190", "200", "210"], c: 2, e: "125 + 75 = 200 pas!" },
+  { q: "Berapakah hasil dari 90 − 35?", a: ["45", "50", "55", "65"], c: 2, e: "90 − 35 = 55." },
+  { q: "Ada 7 kotak pensil. Setiap kotak berisi 5 pensil. Berapa jumlah seluruhnya?", a: ["12", "30", "35", "40"], c: 2, e: "7 × 5 = 35 pensil." },
+  { q: "24 kue dibagikan sama rata kepada 4 anak. Setiap anak mendapat berapa kue?", a: ["4", "5", "6", "8"], c: 2, e: "24 ÷ 4 = 6 kue." },
+  { q: "Berapakah hasil dari 235 + 120?", a: ["345", "355", "365", "375"], c: 1, e: "235 + 120 = 355." },
+  { q: "Berapakah hasil dari 8 × 7?", a: ["48", "54", "56", "64"], c: 2, e: "8 × 7 = 56. Hebat sekali!" }
+];
+
+let current = 0;
+let score = 0;
+let answered = false;
+let earned = 0;
+
+function renderQuestion() {
+  answered = false;
+  const item = questions[current];
+
+  document.getElementById("questionCount").textContent =
+    `Soal ${current + 1} dari ${questions.length}`;
+  document.getElementById("currentScore").textContent = score;
+  document.getElementById("progressFill").style.width =
+    `${(current / questions.length) * 100}%`;
+  document.getElementById("questionText").textContent = item.q;
+  document.getElementById("feedback").className = "feedback";
+  document.getElementById("feedback").textContent = "";
+  document.getElementById("nextBtn").disabled = true;
+  document.getElementById("nextBtn").textContent =
+    current === questions.length - 1 ? "Lihat Hasil 🏆" : "Berikutnya →";
+
+  const options = document.getElementById("answerOptions");
+  options.innerHTML = "";
+
+  item.a.forEach((answer, index) => {
+    const button = document.createElement("button");
+    button.className = "answer-btn";
+    button.textContent = String.fromCharCode(65 + index) + ".  " + answer;
+    button.addEventListener("click", () => checkAnswer(index, button));
+    options.appendChild(button);
+  });
+}
+
+function checkAnswer(index, selectedButton) {
+  if (answered) return;
+  answered = true;
+
+  const item = questions[current];
+  const buttons = document.querySelectorAll(".answer-btn");
+  buttons.forEach(button => button.disabled = true);
+
+  const feedback = document.getElementById("feedback");
+  feedback.classList.add("show");
+
+  if (index === item.c) {
+    score += 10;
+    feedback.classList.add("good");
+    feedback.textContent = "🎉 Yey! Jawaban kamu benar. " + item.e;
+    selectedButton.classList.add("correct");
+  } else {
+    feedback.classList.add("bad");
+    feedback.textContent =
+      "💪 Jangan menyerah! Jawaban yang benar adalah " +
+      item.a[item.c] + ". " + item.e;
+    selectedButton.classList.add("wrong");
+    buttons[item.c].classList.add("correct");
+  }
+
+  document.getElementById("currentScore").textContent = score;
+  document.getElementById("nextBtn").disabled = false;
+}
+
+function nextQuestion() {
+  if (!answered) return;
+
+  if (current < questions.length - 1) {
+    current++;
+    renderQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  document.getElementById("quizContent").style.display = "none";
+  document.getElementById("resultPanel").classList.add("show");
+  document.getElementById("progressFill").style.width = "100%";
+
+  const correct = score / 10;
+  document.getElementById("totalStars").textContent = score / 10;
+  document.getElementById("resultEmoji").textContent =
+    correct >= 8 ? "🏆" : correct >= 5 ? "🌟" : "💪";
+  document.getElementById("resultTitle").textContent =
+    correct >= 8 ? "Luar Biasa, Jagoan!" : correct >= 5 ? "Bagus Sekali!" : "Tetap Semangat!";
+
+  document.getElementById("resultMessage").textContent =
+    `Kamu berhasil menjawab ${correct} dari ${questions.length} soal dengan benar dan mendapatkan total ${score} bintang! ` +
+    (correct >= 8
+      ? "Kamu adalah master matematika sejati! Terus pertahankan prestasi hebat ini."
+      : correct >= 5
+      ? "Kemampuan berhitungmu sudah semakin keren. Yuk, coba lagi untuk hasil sempurna!"
+      : "Jangan berkecil hati! Coba pelajari materinya sekali lagi, lalu taklukkan kuisnya dari awal!");
+
+  earned = Math.max(earned, score / 10);
+}
+
+function restartQuiz() {
+  current = 0;
+  score = 0;
+  answered = false;
+  document.getElementById("quizContent").style.display = "block";
+  document.getElementById("resultPanel").classList.remove("show");
+  renderQuestion();
+}
+
+renderQuestion();
+</script>
+</body>
+</html>
